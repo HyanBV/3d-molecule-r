@@ -1,0 +1,18 @@
+<div id="mol3D" style="height:1000px;width:1000px; margin: auto;"></div>
+
+<script src="https://d3js.org/d3.v5.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mrDoob/three.js@r97/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/BoboRett/MolViewer@v0.52/molViewer.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mrDoob/three.js@r97/examples/js/effects/OutlineEffect.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mrDoob/three.js@r97/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+
+    const Molecule = new MolViewer.Molecule()
+    Molecule.get3DFromSMILE( "[OH2]" ); //
+
+    const mol3D = new MolViewer.Mol3D( null, document.getElementById( "mol3D" ) );
+    mol3D.init();
+
+    document.addEventListener( "ajaxComplete", () => { mol3D.Molecule = Molecule; mol3D.draw() } );
+</script>
